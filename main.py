@@ -10,7 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
-FILE_LOC = "data.xlsx"
+FILE_LOC = r"C:\Users\wb580520\OneDrive - WBG\Documents\GitHub\Whatsapp-Automation-Python\data.xlsx"
 SRNO = 'SRNO'
 NAME = 'Name'
 PHONENUMBER = 'Phone Number'
@@ -44,10 +44,7 @@ def read_data_from_excel():
         printData("Excel 'data.xlsx' not found", 'ERROR')
     printData("Found {0} messages to be send".format(len(df.index)), 'INFO')
     for i in df.index:
-        if '+' not in str(df[PHONENUMBER][i]):
-            number = '+91' + str(df[PHONENUMBER][i])
-        else:
-            number = str(df[PHONENUMBER][i])
+        number = str(df[PHONENUMBER][i])
         output = {
             'SrNo': df[SRNO][i],
             'Name': df[NAME][i],
